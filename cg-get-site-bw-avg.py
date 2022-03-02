@@ -206,7 +206,7 @@ def cgx_get_bw_consumption(sdk, start_time, end_time, site_id=None):
     if site_id: post_request['filter']['site'].append(str(site_id))
     result = sdk.post.monitor_metrics(post_request)
     metrics = result.cgx_content
-    series = metrics.get("metrics",[{}])[0].get("series",[])[0]
+    series = metrics.get("metrics",[{}])[0].get("series",[{}])[0]
     return(cgx_average_series(series))
 #\----------------------
 
